@@ -6,4 +6,5 @@ urlpatterns = [
     path('', lambda request: redirect('/api/books/')),  # 👈 Redirect root URL
     path('admin/', admin.site.urls),
     path('api/', include('books.urls')),
+    path('api/', include('books.urls')),
 ]
