@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-tq#m-#j5v$drfx83oz#(2jxjb3vo(xqg&r_w&x9&9bt=p=p@4^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['gutenberg.onrender.com']
+ALLOWED_HOSTS = ['ebook-57yx.onrender.com', 'localhost', '127.0.0.1']
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
