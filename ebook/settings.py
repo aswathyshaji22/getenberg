@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'ebook.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://postgres:password@localhost:5432/ebookdb',
+        default=os.environ['DATABASE_URL'],
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=True  # dj-database-url will internally add sslmode=require
     )
 }
 
