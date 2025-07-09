@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-tq#m-#j5v$drfx83oz#(2jxjb3vo(xqg&r_w&x9&9bt=p=p@4^
 DEBUG = True
 
 ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['gutenberg.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1','gutenberg.onrender.com']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -80,15 +80,15 @@ WSGI_APPLICATION = 'ebook.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    ''''default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ebookdb',
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
-    }'''
-    'default': dj_database_url.config(default='postgres://postgres:password@localhost:5432/ebookdb')
+    }
+   # 'default': dj_database_url.config(default='postgres://postgres:password@localhost:5432/ebookdb')
 }
 
 
