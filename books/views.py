@@ -4,6 +4,7 @@ from rest_framework import status
 from django.db.models import Q
 from .models import Book
 from .serializers import BookSerializer
+from django.core.management import call_command
 
 class BookListView(APIView):
     """
@@ -77,3 +78,18 @@ class BookListView(APIView):
             'page': page,
             'books': serialized_books.data
         }, status=status.HTTP_200_OK)
+
+
+
+class RunMigrationsView(APIView):
+    """
+    Temporary API endpoint to run Django migrations.
+    Only for admin use. DELETE this after running once!
+    """
+
+    def post(self, request):
+        try:
+            call_command('migrate')
+            return Response({"message": "✅ Migrations ran successfully."}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
