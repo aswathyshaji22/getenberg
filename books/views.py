@@ -94,21 +94,7 @@ class RunMigrationsView(APIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
-'''class LoadBooksView(APIView):
-    """
-    TEMP view to load books.csv into the database
-    """
-
-    def post(self, request):
-        try:
-            call_command('load_books')
-            return Response({"message": "✅ Books loaded successfully."}, status=200)
-        except Exception as e:
-            return Response({"error": str(e)}, status=500)'''
 class LoadBooksView(APIView):
-    def get(self, request):
-        return Response({"status": "🟢 LoadBooksView reachable"})
-
     def post(self, request):
         try:
             call_command('load_books')
