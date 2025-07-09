@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,14 +80,15 @@ WSGI_APPLICATION = 'ebook.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    ''''default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ebookdb',
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    }'''
+    'default': dj_database_url.config(default='postgres://postgres:password@localhost:5432/ebookdb')
 }
 
 
