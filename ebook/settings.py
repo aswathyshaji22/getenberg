@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
-from dotenv import load_dotenv
-load_dotenv()  # this loads .env variables into environment
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,15 +80,22 @@ WSGI_APPLICATION = 'ebook.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+import dj_database_url
+
 DATABASES = {
-    'default': dj_database_url.config(
+    'default': dj_database_url.parse(
+        'postgresql://ebookdb_ln0i_user:rM8szsiuMgOCG8vwCLV7LoMmJgmEu75Z@dpg-d1muuq6uk2gs739a79jg-a.singapore-postgres.render.com/ebookdb_ln0i',
         conn_max_age=600,
         ssl_require=True
     )
 }
 
-
-print("💡 DATABASE_URL from environment:", os.environ.get('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
