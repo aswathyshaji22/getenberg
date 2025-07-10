@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+from dotenv import load_dotenv
+load_dotenv()  # this loads .env variables into environment
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,14 +82,6 @@ WSGI_APPLICATION = 'ebook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-
-import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
